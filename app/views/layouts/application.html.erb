@@ -11,5 +11,14 @@
 
   <body>
     <%= yield %>
+    <div id="user_nav">
+  <% if user_signed_in? %>
+    Conectado como <%= current_user.email %>. No eres t&uacute;?
+    <%= link_to "Log off", destroy_user_session_path, :method => :delete%>
+  <% else %>
+    <%= link_to "Alta", new_user_registration_path %> o
+    <%= link_to "Login", new_user_session_path %>
+  <% end %>
+</div>
   </body>
 </html>

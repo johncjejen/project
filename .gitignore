@@ -30,9 +30,11 @@
 /public/assets
 .byebug_history
 
+.env
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
+/config/database
 /public/packs
 /public/packs-test
 /node_modules
