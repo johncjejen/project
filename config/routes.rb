@@ -8,4 +8,13 @@ Rails.application.routes.draw do
 
   root :to => "index#index"
 
+  post "posts/create" => 'posts#create'
+  get "posts/export_post", to: "posts#export_post"
+
+  get "posts/new" => 'posts#new'
+  get "posts/index" => 'posts#index'
+  get "posts/my_post" => 'posts#my_post'
+  get "posts/view_post/:id" => 'posts#view_post'
+  get 'posts/:id', to: "posts#edit"
+
 end

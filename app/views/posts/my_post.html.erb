@@ -16,30 +16,27 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
 </head>
 <body>
 <div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<div class="wrapper">
-    				<div class="typing-demo">
-     				 Succesful.
-   					</div>
-					
-				</div>
-				<div>
-					<button><a href="/posts/new">New Post</a></button>
-					<button><a href="/posts/index">All Posts</a></button>
-					<button><a href="/posts/my_post">My Posts</a></button>
-				</div>
-				<%=link_to 'Download as Excel'%>
-				<%=link_to 'Upload from Excel'%>
-			</div>
-			
-		</div>
+	<div class="d-flex justify-content-center h-100" align="center">
+     <h1>POSTS</h1>
+      
+            <% @post.each do |posta|%>
+           
+                  <div class="card" style="padding:15px;max-width:300px">
+                    <h3 class="text-upercase"><%=posta.title.upcase%></h3>
+                    <p align="center">    <img src="<%=posta.image_post %>" width="200" height="100" align="center"> </p>
+                    <p class="text-secondary" ><%=posta.created_at%></p>
+                    <%= link_to "Edit", "#{posta.id}" %>
+                    <a href="/">BACK</a>
+                </div>
+            
+            <%end%>
+       
 	</div>
+    
 </div>
 </body>
 </html>

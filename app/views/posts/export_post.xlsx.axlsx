@@ -1,0 +1,27 @@
+wb = xlsx_package.workbook
+
+css_tittle = wb.styles.add_style(
+  :sz=>14,
+  b: true,
+   :widths=>[:ignore] *10)
+
+style_titles=wb.styles.add_style(:bg_color => "dcdcdc",
+ :border=>Axlsx::STYLE_THIN_BORDER,
+ b: true,
+ :sz=>10,
+ :alignment=>{:horizontal => :center})
+
+style_content=wb.styles.add_style(
+ :border=>Axlsx::STYLE_THIN_BORDER,
+ :sz=>10,
+ :alignment=>{:horizontal => :center, :wrap_text => true})
+
+time=Time.zone.now
+date=time.strftime('%b %d  %Y')
+
+wb.add_worksheet(name: "Post",encoding: Encoding::UTF_8) do |sheet|
+  sheet.add_row ['TITLE','DESCRIPTION','AUTHOR'], :style=> css_tittle
+  @post.each do |post|
+    sheet.add_row [post.title, post.description, post.author],:style=> style_content
+  end
+end

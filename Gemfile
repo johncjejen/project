@@ -27,6 +27,11 @@ gem 'bootstrap', '~> 4.1'
 gem "dotenv-rails"
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem "roo", "~> 2.7.0"
+gem 'gmaps4rails'
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
